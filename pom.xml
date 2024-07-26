@@ -21,8 +21,8 @@
 		<resteasy.client.version>5.0.9.Final</resteasy.client.version>
 		<resteasy.version>3.15.6.Final</resteasy.version>
 		<spotless.version>2.43.0</spotless.version>
-		<simplifyvms.appbuilder.dsl-libs>1.0.0</simplifyvms.appbuilder.dsl-libs>
-		<simplifyvms.appbuilder.auth-sdk-spring>1.0.5</simplifyvms.appbuilder.auth-sdk-spring>
+		<simplifyvms.dsl-libs>1.0.0</simplifyvms.dsl-libs>
+		<simplifyvms.config-sdk-spring>1.0.5</simplifyvms.config-sdk-spring>
 		<commons-io.version>2.15.1</commons-io.version>
 		<org.json.version>20231013</org.json.version>
 		<springdoc-openapi-ui-version>1.6.12</springdoc-openapi-ui-version>
