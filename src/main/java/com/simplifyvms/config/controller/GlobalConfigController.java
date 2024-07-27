@@ -17,6 +17,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/global-configs")
+
 public class GlobalConfigController {
 
     private final GlobalConfigService globalConfigService;
