@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 
+
 @Component
 public class JwtConverter implements Converter<Jwt, AbstractAuthenticationToken> {
     @Override
