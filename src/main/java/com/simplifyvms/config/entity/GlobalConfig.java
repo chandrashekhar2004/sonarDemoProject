@@ -1,7 +1,5 @@
 package com.simplifyvms.config.entity;
 
-
-
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

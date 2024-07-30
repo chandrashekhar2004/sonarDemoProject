@@ -1,9 +1,8 @@
 package com.simplifyvms.config.controller;
 
-
-
-import com.simplifyvms.config.service.GlobalConfigService;
+import com.simplifyvms.config.dto.GlobalConfigDTO;
 import com.simplifyvms.config.entity.GlobalConfig;
+import com.simplifyvms.config.service.GlobalConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,31 +26,31 @@ public class GlobalConfigController {
     }
 
     @GetMapping
-    public List<GlobalConfig> getAllGlobalConfigs() {
-        return globalConfigService.findAll();
+    public ResponseEntity<List<GlobalConfig>> getAllGlobalConfigs() {
+        List<GlobalConfig> configs = globalConfigService.findAll();
+        return ResponseEntity.ok(configs);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GlobalConfig> getGlobalConfigById(@PathVariable Long id) {
+    public ResponseEntity<GlobalConfig> getGlobalConfigById(@PathVariable String id) {
         Optional<GlobalConfig> config = globalConfigService.findById(id);
         return config.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<GlobalConfig> createGlobalConfig(@RequestBody GlobalConfig globalConfig) {
-        GlobalConfig savedConfig = globalConfigService.save(globalConfig);
+    public ResponseEntity<GlobalConfig> createGlobalConfig(@RequestBody GlobalConfigDTO globalConfigDTO) {
+        GlobalConfig savedConfig = globalConfigService.save(globalConfigDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedConfig);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<GlobalConfig> updateGlobalConfig(@PathVariable Long id, @RequestBody GlobalConfig globalConfig) {
-        globalConfig.setId(String.valueOf(id));
-        GlobalConfig updatedConfig = globalConfigService.save(globalConfig);
+    public ResponseEntity<GlobalConfig> updateGlobalConfig(@PathVariable String id, @RequestBody GlobalConfigDTO globalConfigDTO) {
+        GlobalConfig updatedConfig = globalConfigService.update(id, globalConfigDTO);
         return ResponseEntity.ok(updatedConfig);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteGlobalConfig(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteGlobalConfig(@PathVariable String id) {
         globalConfigService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
