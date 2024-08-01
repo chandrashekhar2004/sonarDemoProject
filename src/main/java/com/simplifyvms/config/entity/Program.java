@@ -11,7 +11,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Convert;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -22,26 +24,20 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Program {
+public class Program  implements Serializable {
 
-//    @Id
-//    @GeneratedValue(generator = "UUID")
-//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-//    @Column(name = "id", updatable = false, nullable = false)
-//    private String id;
-
-//    @Column(name = "unique_id", length = 50, nullable = false)
-//    @GeneratedValue(generator = "UUID")
-//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-//    private String uniqueId;
+    private static final long serialVersionUID = -4439114469417994311L;
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
-    private UUID id;
+    @GeneratedValue(generator = "UUID")
+//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+//    @Column(name = "id", updatable = false, nullable = false)
+    private String id;
 
-    @Column(nullable = false)
-    private UUID uniqueId;
+    @Column(name = "unique_id", length = 100, nullable = false)
+    //    @GeneratedValue(generator = "UUID")
+//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    private String uniqueId;
 
     @Column(name = "service_type", length = 100, nullable = false)
     private String serviceType;
@@ -86,5 +82,4 @@ public class Program {
     @Column(name = "modified_by", length = 100)
     private String modifiedBy;
 }
-
 
