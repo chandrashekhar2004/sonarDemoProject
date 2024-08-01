@@ -1,12 +1,13 @@
 package com.simplifyvms.config.controller;
 
-import com.simplifyvms.config.entity.Program;
+import com.simplifyvms.config.dto.ProgramDto;
+import com.simplifyvms.config.dto.ProgramRequest;
 import com.simplifyvms.config.service.ProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/programs")
@@ -16,27 +17,30 @@ public class ProgramController {
     private ProgramService programService;
 
     @GetMapping("/{id}")
-    public Program getProgramById(@PathVariable UUID id) {
+    public ResponseEntity<ProgramDto> getProgramById(@PathVariable String id) {
         return programService.getProgramById(id);
     }
 
     @PostMapping
-    public Program createProgram(@RequestBody Program program) {
-        return programService.createProgram(program);
+    public ResponseEntity<ProgramDto> createProgram(@RequestBody ProgramRequest programRequest) {
+        return programService.createProgram(programRequest);
     }
+
 
     @PutMapping("/{id}")
-    public Program updateProgram(@PathVariable UUID id, @RequestBody Program program) {
-        return programService.updateProgram(id, program);
+    public ResponseEntity<ProgramDto> updateProgram(@PathVariable String id, @RequestBody ProgramRequest programRequest) {
+        return programService.updateProgram(id, programRequest);
     }
 
+
+
     @DeleteMapping("/deleteById/{id}")
-    public String deleteProgram(@PathVariable UUID id) {
+    public ResponseEntity<String> deleteProgram(@PathVariable String id) {
         return programService.deleteProgram(id);
     }
 
     @GetMapping("/allProgram")
-    public List<Program> getAllPrograms() {
+    public List<ProgramDto> getAllPrograms() {
         return programService.getAllPrograms();
     }
 }

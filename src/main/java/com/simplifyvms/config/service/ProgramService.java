@@ -1,16 +1,18 @@
 package com.simplifyvms.config.service;
 
-
-import com.simplifyvms.config.entity.Program;
+import com.simplifyvms.config.dto.ProgramDto;
+import com.simplifyvms.config.dto.ProgramRequest;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.UUID;
+
 
 public interface ProgramService {
 
-    Program getProgramById(UUID id);
-    Program createProgram(Program program);
-    Program updateProgram(UUID id, Program program);
-    String deleteProgram(UUID id);
-    List<Program> getAllPrograms();
+    ResponseEntity<ProgramDto> getProgramById(String id);
+    ResponseEntity<ProgramDto> createProgram(ProgramRequest programRequest);
+    ResponseEntity<ProgramDto> updateProgram(String id, ProgramRequest programRequest);
+    ResponseEntity<String> deleteProgram(String id);
+    List<ProgramDto> getAllPrograms();
 }
+
