@@ -42,6 +42,9 @@
 
 	<properties>
 		<java.version>22</java.version>
+		<sonar.projectKey>thebaapcompany_simplify-config-java_5b0bb32c-4ed3-42f7-a003-eb18f8979ae5</sonar.projectKey>
+		<sonar.projectName>simplify-config-java</sonar.projectName>
+		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
 	</properties>
 
 	<dependencies>

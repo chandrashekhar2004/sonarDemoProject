@@ -1,0 +1,6 @@
+projectKey=thebaapcompany_simplify-config-java_5b0bb32c-4ed3-42f7-a003-eb18f8979ae5
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=thebaapcompany_simplify-config-java_5b0bb32c-4ed3-42f7-a003-eb18f8979ae5
+ceTaskId=9d1bbc1b-2150-4e2a-8b79-e79f110faca6
+ceTaskUrl=http://localhost:9000/api/ce/task?id=9d1bbc1b-2150-4e2a-8b79-e79f110faca6
