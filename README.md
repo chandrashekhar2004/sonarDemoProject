@@ -1,4 +1,6 @@
-# simplify-config-java
+# Sonarqube-config-java
+![sonarqube1](https://github.com/user-attachments/assets/8585496a-e107-4013-835a-b7e69a5bce55)
+![sonarqube2](https://github.com/user-attachments/assets/383f031a-795f-4682-af1b-cf24408509b8)
 
 
 
